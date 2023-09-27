@@ -15,11 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@msaber/react-scroll": [
+      "@WebSaber/react-scroll": [
         "packages/react-scroll/react-scroll/src/index.ts"
       ],
-      "@msaber/scroll": ["packages/scroll/src/index.ts"],
-      "@msaber/scroll-core": ["packages/scroll-core/src/index.ts"]
+      "@WebSaber/scroll": ["packages/scroll/src/index.ts"],
+      "@WebSaber/scroll-core": ["packages/scroll-core/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
