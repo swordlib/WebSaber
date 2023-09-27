@@ -1,5 +1,5 @@
 {
-  "name": "@WebSaber/string-utils",
+  "name": "@websaber/string-utils",
   "version": "0.0.1",
   "dependencies": {},
   "main": "./src/index.ts"
