@@ -18,14 +18,14 @@ jobs:
         with:
           # We need to fetch all branches and commits so that Nx affected has a base to compare against.
           fetch-depth: 0
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
       - uses: nrwl/nx-set-shas@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-          registry-url: 'https://registry.npmjs.org'
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
+          cache: 'pnpm'
       - run: pnpm install
       - run: pnpm exec nx affected -t test --pararllel=3
       - run: pnpm exec nx affected -t build --pararllel=3
