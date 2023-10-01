@@ -1,6 +1,6 @@
 {
   "name": "@websaber/scroll-core",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "dependencies": {},
   "type": "commonjs",
   "main": "./index.cjs",
