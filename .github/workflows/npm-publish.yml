@@ -30,5 +30,7 @@ jobs:
       - run: pnpm exec nx affected -t test --pararllel=3
       - run: pnpm exec nx affected -t build --pararllel=3
       - run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+          npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
           pnpm exec nx affected -t publish --pararllel=3
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
