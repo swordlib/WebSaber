@@ -11,20 +11,14 @@ on:
     branches:
     - main
 jobs:
-  install:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
   build:
-    needs: install
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 20
+          cache: 'pnpm'
       - run: pnpm exec nx affected -t test --pararllel=3
       - run: pnpm exec nx affected -t build --pararllel=3
 
