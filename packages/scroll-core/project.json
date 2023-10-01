@@ -18,7 +18,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs scroll-core {args.ver} {args.tag}",
+      "command": "cd dist/packages/scroll-core && npm publish --access public",
       "dependsOn": ["build"]
     },
     "lint": {

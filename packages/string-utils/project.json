@@ -18,7 +18,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs string-utils {args.ver} {args.tag}",
+      "command": "cd dist/packages/string-utils && npm publish --access public",
       "dependsOn": ["build"]
     },
     "lint": {
