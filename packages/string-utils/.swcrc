@@ -1,6 +1,13 @@
 {
+  "env": {
+    "targets": {
+      "chrome": "67",
+      "ios": "12.0"
+    },
+    "mode": "entry",
+    "coreJs": "3.22"
+  },
   "jsc": {
-    "target": "es2017",
     "parser": {
       "syntax": "typescript",
       "decorators": true,
