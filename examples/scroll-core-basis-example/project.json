@@ -1,0 +1,74 @@
+{
+  "name": "scroll-core-basis-example",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "examples/scroll-core-basis-example/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/examples/scroll-core-basis-example"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "scroll-core-basis-example:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "scroll-core-basis-example:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "scroll-core-basis-example:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "scroll-core-basis-example:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "scroll-core-basis-example:build:development"
+        },
+        "production": {
+          "buildTarget": "scroll-core-basis-example:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/examples/scroll-core-basis-example"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "examples/scroll-core-basis-example/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    }
+  },
+  "tags": []
+}
