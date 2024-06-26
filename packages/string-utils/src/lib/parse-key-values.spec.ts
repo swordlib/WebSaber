@@ -46,15 +46,16 @@ describe('any-qs', () => {
   });
   
   describe('parse anything look like key=value', () => {
-    const rawStr = 'nick=bill,email=test@email.com; url=http://github.com';
+    const rawStr = 'nick=bill,email=test@email.com; url=http://github.com&value=a%20%2C%20%E4%B8%AD%E6%96%87';
     /**
      * @type {string} string encoded with encodedURI
      */
-    const encodedStr = 'nick=bill,email=test@email.com;%20url=http://github.com';
+    const encodedStr = 'nick=bill,email=test@email.com; url=http://github.com&value=a%20%2C%20%E4%B8%AD%E6%96%87';
     const result = {
       nick: 'bill',
       email: 'test@email.com',
-      url: 'http:'
+      url: 'http:',
+      value: 'a , 中文'
     };
 
     test('should parse raw string', () => {

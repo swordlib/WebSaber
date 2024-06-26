@@ -17,18 +17,19 @@ export function parseKeyValues(url: string, options: Partial<IParseKeyValuesOpti
 
   const params: Record<string, string | number> = {},
 
-    tempArr = decodeURIComponent(url)
-                  .replace(/\+/g, ' ')
+    tempArr = url.replace(/\+/g, ' ')
                   .match(/\w+=[^&#?\\/,;]+/g);
   if (!tempArr) {
     return {};
   }
   tempArr.forEach(function (item) {
     const ps = item.split('=');
+    const key = ps[0];
+    const value = decodeURIComponent(ps[1]);
     if (postOptions.parseNumber) {
-      params[ps[0]] = /^\d+(\.\d+)?$/.test(ps[1]) ? parseFloat(ps[1]) : ps[1];
+      params[key] = /^\d+(\.\d+)?$/.test(value) ? parseFloat(value) : value;
     } else {
-      params[ps[0]] = ps[1];
+      params[key] = value;
     }
   });
 
